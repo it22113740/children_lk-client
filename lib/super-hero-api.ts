@@ -1,5 +1,6 @@
 import { API_BASE } from "./api-base";
 
+
 export type PublicSuperHero = {
   _id: string;
   name: string;
