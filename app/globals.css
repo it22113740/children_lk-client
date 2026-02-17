@@ -8,8 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-fredoka), ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +21,67 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-fredoka), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+}
+
+/* Navbar - child-friendly theme */
+.navbar-top-bar {
+  background-color: #6a5acd;
+  min-height: 2rem;
+}
+
+/* Nav bar + wave as one single block (no gap): wave is the bottom edge inside the same element */
+.navbar-main.navbar-wave-wrap {
+  --navbar-bg: #ffffff;
+  --navbar-wave: #bae6fd;
+  background-color: var(--navbar-bg);
+  position: relative;
+  overflow: visible;
+  padding-bottom: 16px; /* less space so wave sits closer to nav items */
+}
+
+/* Wavy bottom edge - sits inside the block (no transform), so no gap */
+.navbar-wave-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 56px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 56' preserveAspectRatio='none'%3E%3Cpath d='M0,28 Q150,0 300,28 T600,28 T900,28 T1200,28 L1200,56 L0,56 Z' fill='%23ffffff'/%3E%3Cpath d='M0,39 Q200,11 400,39 T800,39 T1200,39 L1200,56 L0,56 Z' fill='%23e0f2fe'/%3E%3C/svg%3E") repeat-x;
+  background-size: 600px 56px;
+  pointer-events: none;
+}
+
+/* Downward wave divider (e.g. between hero and content) */
+.events-hero-wave-wrap {
+  position: relative;
+  padding-bottom: 48px;
+}
+
+.events-hero-wave-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 48' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1200,0 L1200,48 Q900,20 600,48 Q300,20 0,48 Z' fill='%23ffffff'/%3E%3Cpath d='M0,12 Q300,32 600,12 T1200,12 L1200,48 L0,48 Z' fill='%23e0f2fe'/%3E%3C/svg%3E") repeat-x;
+  background-size: 600px 48px;
+  pointer-events: none;
+}
+
+.navbar-link-home,
+.navbar-link-super-hero {
+  color: #2c2282;
+}
+
+.navbar-link-resource {
+  color: #e91e7a;
+}
+
+.navbar-link-learning,
+.navbar-link-media {
+  color: #0d9488;
 }
