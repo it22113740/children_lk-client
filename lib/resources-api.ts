@@ -1,5 +1,4 @@
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+import { API_BASE } from "./api-base";
 
 /** Call from client to register a download (POST), then open the document URL yourself */
 export async function registerDownload(
